@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbMvcOkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TBLADMIN">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="50" />
+    <Property Name="sifre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLDERS">
+    <Key>
+      <PropertyRef Name="DERSID" />
+    </Key>
+    <Property Name="DERSID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DERSAD" Type="varchar" MaxLength="50" />
+    <Property Name="OGRTID" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TBLNOTLAR">
+    <Key>
+      <PropertyRef Name="NOTID" />
+    </Key>
+    <Property Name="NOTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DERSID" Type="tinyint" />
+    <Property Name="OGRENCIID" Type="int" />
+    <Property Name="Vize" Type="tinyint" />
+    <Property Name="Final" Type="tinyint" />
+    <Property Name="ORTALAMA" Type="tinyint" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLOGRENCILER">
+    <Key>
+      <PropertyRef Name="OGRENCIID" />
+    </Key>
+    <Property Name="OGRENCIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OGRENCIAD" Type="varchar" MaxLength="50" />
+    <Property Name="OGRENCISOYAD" Type="varchar" MaxLength="50" />
+    <Property Name="OGRENCICINSIYET" Type="varchar" MaxLength="5" />
+    <Property Name="OGRENCIFOTOGRAF" Type="varchar" MaxLength="50" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBLOGRETMENLER">
+    <Key>
+      <PropertyRef Name="OGRETMENID" />
+    </Key>
+    <Property Name="OGRETMENID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OGRETMENAD" Type="varchar" MaxLength="50" />
+    <Property Name="OGRETMENSOYAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="OGRETMENBRANS" Type="varchar" MaxLength="50" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <Association Name="FK_TBLDERS_TBLOGRETMENLER">
+    <End Role="TBLOGRETMENLER" Type="Self.TBLOGRETMENLER" Multiplicity="0..1" />
+    <End Role="TBLDERS" Type="Self.TBLDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLOGRETMENLER">
+        <PropertyRef Name="OGRETMENID" />
+      </Principal>
+      <Dependent Role="TBLDERS">
+        <PropertyRef Name="OGRTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLNOTLAR_TBLDERS">
+    <End Role="TBLDERS" Type="Self.TBLDERS" Multiplicity="0..1" />
+    <End Role="TBLNOTLAR" Type="Self.TBLNOTLAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLDERS">
+        <PropertyRef Name="DERSID" />
+      </Principal>
+      <Dependent Role="TBLNOTLAR">
+        <PropertyRef Name="DERSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLNOTLAR_TBLOGRENCILER">
+    <End Role="TBLOGRENCILER" Type="Self.TBLOGRENCILER" Multiplicity="0..1" />
+    <End Role="TBLNOTLAR" Type="Self.TBLNOTLAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLOGRENCILER">
+        <PropertyRef Name="OGRENCIID" />
+      </Principal>
+      <Dependent Role="TBLNOTLAR">
+        <PropertyRef Name="OGRENCIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbMvcOkulModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLADMIN" EntityType="Self.TBLADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLDERS" EntityType="Self.TBLDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLNOTLAR" EntityType="Self.TBLNOTLAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLOGRENCILER" EntityType="Self.TBLOGRENCILER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLOGRETMENLER" EntityType="Self.TBLOGRETMENLER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBLDERS_TBLOGRETMENLER" Association="Self.FK_TBLDERS_TBLOGRETMENLER">
+      <End Role="TBLOGRETMENLER" EntitySet="TBLOGRETMENLER" />
+      <End Role="TBLDERS" EntitySet="TBLDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLNOTLAR_TBLDERS" Association="Self.FK_TBLNOTLAR_TBLDERS">
+      <End Role="TBLDERS" EntitySet="TBLDERS" />
+      <End Role="TBLNOTLAR" EntitySet="TBLNOTLAR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLNOTLAR_TBLOGRENCILER" Association="Self.FK_TBLNOTLAR_TBLOGRENCILER">
+      <End Role="TBLOGRENCILER" EntitySet="TBLOGRENCILER" />
+      <End Role="TBLNOTLAR" EntitySet="TBLNOTLAR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

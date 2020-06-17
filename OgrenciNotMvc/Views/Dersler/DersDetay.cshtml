@@ -1,0 +1,26 @@
+﻿    @model OgrenciNotMvc.Models.EntitiyFramework.TBLDERS
+@{
+    ViewBag.Title = "DersDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="alert alert-info" role="alert">
+        <strong>Ders Detay</strong>
+    </div>
+
+@using (Html.BeginForm("Guncelle", "Dersler", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Ders Adı</label>
+        @Html.TextBoxFor(m => m.DERSAD, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Öğretmen Adı</label>
+        @Html.DropDownListFor(m => m.TBLOGRETMENLER.OGRETMENID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.DERSID)
+
+    <div style="margin-top:10px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}

@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title>Öğrenci Bilgi Sistemi</title>
+    <!-- meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Art Sign Up Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates,
+		Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <!-- /meta tags -->
+    <!-- custom style sheet -->
+    <link href="~/weblogin/weblogin/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- /custom style sheet -->
+    <!-- fontawesome css -->
+    <link href="~/weblogin/weblogin/css/fontawesome-all.css" rel="stylesheet" />
+    <!-- /fontawesome css -->
+    <!-- google fonts-->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- /google fonts-->
+
+</head>
+
+
+<body>
+    <h1>MVC ÖĞRENCI NOT SISTEMI</h1>
+    <div class=" w3l-login-form">
+        <h2>Giriş Yap</h2>
+        @using (Html.BeginForm("Giris", "GirisYap", FormMethod.Post)) {
+
+            <div class=" w3l-form-group">
+                <label>Kullanıcı Adı:</label>
+                <div class="group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="form-control" placeholder="Kullanıcı Adı" required="required" name="kullanici" />
+                </div>
+            </div>
+            <div class=" w3l-form-group">
+                <label>Şifre:</label>
+                <div class="group">
+                    <i class="fas fa-unlock"></i>
+                    <input type="password" class="form-control" placeholder="Şifre" required="required" name="sifre" />
+                </div>
+            </div>
+            <div class="forgot">
+                <a href="#">Şifremi Unuttum?</a>
+                <p><input type="checkbox">Beni Hatırla</p>
+            </div>
+            <button type="submit">Giriş Yap</button>
+        }
+        <a href="#"<p class=" w3l-register-p">Bir Hesabınız Yok Mu?<a href="~/GirisYap/KisiEkle" class="register"> Kayıt Ol</a></p></a>
+    </div>
+    <footer>
+        <p class="copyright-agileinfo">
+            &copy;Tüm hakları Saklıdır | Design by İSA ÇETİN
+        </p>
+    </footer>
+
+</body>
+
+</html>

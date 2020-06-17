@@ -1,0 +1,29 @@
+﻿@model OgrenciNotMvc.Models.EntitiyFramework.TBLOGRENCILER
+@{
+    ViewBag.Title = "OgrenciDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ögrenci Detay</h2>
+
+@using (Html.BeginForm("Guncelle", "Ogrenci", FormMethod.Post))
+{
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.OGRENCIAD)
+        @Html.TextBoxFor(m => m.OGRENCIAD, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.OGRENCISOYAD)
+        @Html.TextBoxFor(m => m.OGRENCISOYAD, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.OGRENCICINSIYET)
+        @Html.TextBoxFor(m => m.OGRENCICINSIYET, new { @class = "form-control" })
+    </div>
+
+
+    @Html.HiddenFor(m => m.OGRENCIID)
+    <div style="margin-top:10px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}

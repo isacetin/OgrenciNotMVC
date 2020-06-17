@@ -1,0 +1,134 @@
+﻿@using OgrenciNotMvc.Models.EntitiyFramework
+@model List<TBLOGRETMENLER>
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="tr">
+<head>
+    <title> Öğrenci Bilgi Sistemi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/university/css/bootstrap.css">
+    <link rel="stylesheet" href="~/university/css/animate.css">
+    <link rel="stylesheet" href="~/university/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="~/university/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/university/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/university/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/university/css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="~/university/css/style.css">
+</head>
+<body>
+
+    <header role="banner">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand absolute" href="/Anasayfa/Index">MVC ÜNİVERSİTE</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Anasayfa/Index">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Anasayfa/Ogrtmenler">Öğretmenler </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Anasayfa/Dersler">Dersler</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav absolute-right">
+                        <li>
+                            <a href="~/GirisYap/Giris">Giriş Yap</a> / <a href="~/GirisYap/KisiEkle">Kayıt Ol</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- END header -->
+    <!-- END section -->
+    <!-- END section -->
+    <!-- END section -->
+    <section class="site-section bg-light element-animate" id="section-counter">
+        <div class="container">
+
+            <table id="tbl1" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Öğretmen Adı</th>
+                        <th>Öğretmen Soyadı</th>
+                        <th>Öğretmen Branşı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ogrt in Model)
+                    {
+                        <tr>
+                            <td>@ogrt.OGRETMENAD</td>
+                            <td>@ogrt.OGRETMENSOYAD</td>
+                            <td>@ogrt.OGRETMENBRANS</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+
+
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-12 text-center copyright">
+
+                    <p class="float-md-left">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright © 2020. Tüm hakları Saklıdır | Design by İSA ÇETİN
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                    <p class="float-md-right">
+                        <a href="#" class="fa fa-facebook p-2"></a>
+                        <a href="#" class="fa fa-twitter p-2"></a>
+                        <a href="#" class="fa fa-linkedin p-2"></a>
+                        <a href="#" class="fa fa-instagram p-2"></a>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END footer -->
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" /></svg></div>
+
+    <script src="~/university/js/jquery-3.2.1.min.js"></script>
+    <script src="~/university/js/jquery-migrate-3.0.0.js"></script>
+    <script src="~/university/js/popper.min.js"></script>
+    <script src="~/university/js/bootstrap.min.js"></script>
+    <script src="~/university/js/owl.carousel.min.js"></script>
+    <script src="~/university/js/jquery.waypoints.min.js"></script>
+    <script src="~/university/js/jquery.stellar.min.js"></script>
+    <script src="~/university/js/jquery.animateNumber.min.js"></script>
+
+    <script src="~/university/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="~/university/js/main.js"></script>
+</body>
+</html>

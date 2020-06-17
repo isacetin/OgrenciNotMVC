@@ -1,0 +1,20 @@
+﻿@model OgrenciNotMvc.Models.EntitiyFramework.TBLDERS
+@{
+    ViewBag.Title = "YeniDers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <form method="post" class="form-group ">
+        <div>
+            <label>Ders Adı</label>
+            <input type="text" class="form-control" name="DERSAD" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Öğretmen Adı</label>
+            @Html.DropDownListFor(m => m.TBLOGRETMENLER.OGRETMENID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        </div>
+            <div style="margin-top:10px">
+                <button class="btn btn-info">Ders Ekle</button>
+            </div>
+</form>
+

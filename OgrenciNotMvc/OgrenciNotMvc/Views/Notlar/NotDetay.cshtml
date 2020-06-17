@@ -1,0 +1,45 @@
+﻿@model OgrenciNotMvc.Models.EntitiyFramework.TBLNOTLAR
+@{
+    ViewBag.Title = "NotDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Not Detay</h2>
+
+@using (Html.BeginForm("NotDetay", "Notlar", FormMethod.Post))
+{
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.OGRENCIID)
+        @Html.TextBoxFor(m => m.OGRENCIID, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.Vize)
+        @Html.TextBoxFor(m => m.Vize, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.Final)
+        @Html.TextBoxFor(m => m.Final, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.ORTALAMA)
+        @Html.TextBoxFor(m => m.ORTALAMA, new { @Value = @ViewBag.ort, @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-top:10px">
+        @Html.LabelFor(m => m.DURUM)
+        @Html.TextBoxFor(m => m.DURUM, new { @Value =ViewBag.drm, @class = "form-control" })
+    </div>
+
+
+    @Html.HiddenFor(m => m.NOTID)
+
+    <div>
+        <button type="submit" name="islem" value="HESAPLA" class="btn btn-default">
+            Hesapla
+        </button>
+        <br /><br />
+        <button type="submit" name="islem" value="NOTGUNCELLE" class="btn btn-info">
+            Güncelle
+        </button>
+    </div>
+}
+

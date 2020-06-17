@@ -1,0 +1,49 @@
+﻿@using OgrenciNotMvc.Models.EntitiyFramework;
+@model List<TBLOGRENCILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Öğrenciler</h2>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Öğrenci ID</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Cinsiyet</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogr in Model)
+        {
+            <tr>
+                <td>@ogr.OGRENCIID</td>
+                <td>@ogr.OGRENCIAD</td>
+                <td>@ogr.OGRENCISOYAD</td>
+                <td>@ogr.OGRENCICINSIYET</td>
+                <td>
+                    <a href="/Ogrenci/Sil/@ogr.OGRENCIID" class="btn btn-danger">Sil</a>
+                    <a href="/Ogrenci/OgrenciDetay/@ogr.OGRENCIID" class="btn btn-success">Güncelle</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Ogrenci/YeniOgrenci" class="btn btn-primary">Yeni Öğrenci Kaydı</a>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.21/i18n/Turkish.json'
+        }
+    });
+</script>

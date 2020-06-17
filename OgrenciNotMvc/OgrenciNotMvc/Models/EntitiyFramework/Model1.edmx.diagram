@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30f09601d1ad4f9b86a53dad9a1f871f" Name="Diagram1">
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBLDERS" Width="1.5" PointX="2.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBLNOTLAR" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBLOGRENCILER" Width="1.5" PointX="3.125" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBLOGRETMENLER" Width="1.5" PointX="0.875" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="DbMvcOkulModel.FK_TBLDERS_TBLOGRETMENLER" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcOkulModel.FK_TBLNOTLAR_TBLDERS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcOkulModel.FK_TBLNOTLAR_TBLOGRENCILER" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBLADMIN" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

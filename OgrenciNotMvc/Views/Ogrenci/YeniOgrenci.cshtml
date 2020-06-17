@@ -1,0 +1,34 @@
+﻿@model OgrenciNotMvc.Models.EntitiyFramework.TBLOGRENCILER
+@{
+    ViewBag.Title = "YeniOgrenci";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="alert alert-info" role="alert">
+        <strong>Yeni Öğrenci Kayıt</strong>
+    </div>
+<div>
+    @using (Html.BeginForm("YeniOgrenci", "Ogrenci", FormMethod.Post, new { enctype="multipart/form-data"})) 
+    {
+        <div>
+            <label>Öğrenci Adı</label>
+            <input type="text" class="form-control" name="OGRENCIAD" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Öğrenci Soyadı</label>
+            <input type="text" class="form-control" name="OGRENCISOYAD" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Öğrenci Cinsiyeti</label>
+            <input type="text" class="form-control" name="OGRENCICINSIYET" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Öğrenci Fotoğrafı</label>
+            <input type="file" class="form-control" name="ImageFile" required />
+        </div>
+        <div style="margin-top:10px">
+            <input type="submit" value="Ekle" class="form-control" />
+        </div>
+    }
+</div>
+

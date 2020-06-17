@@ -1,0 +1,65 @@
+﻿@using OgrenciNotMvc.Models.EntitiyFramework
+@model List<TBLNOTLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="alert alert-info" role="alert">
+        <strong>Sınav Notları</strong>
+    </div>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>NotID</th>
+            <th>Öğrenci</th>
+            <th>Ders</th>
+            <th>Vize</th>
+            <th>Final</th>
+            <th>Ortalama</th>
+            <th>Durum</th>
+            <th>Güncelle</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var snv in Model)
+        {
+            <tr>
+                <td>@snv.NOTID</td>
+                <td>@snv.TBLOGRENCILER.OGRENCIAD</td>
+                <td>@snv.DERSID</td>
+                <td>@snv.Vize</td>
+                <td>@snv.Final</td>
+                <td>@snv.ORTALAMA</td>
+                <td>
+                    @if (snv.DURUM  == true)
+                    {
+                        <p style="color:green; font-size:large;">Başarılı</p>
+                    }
+                    else
+                    {
+                        <p style="color:red; font-size:large;">Başarısız</p>
+                    }
+                </td>
+                <td><a href="/Notlar/NotDetay/@snv.NOTID" class="btn btn-warning">Güncelle</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Notlar/YeniSinav" class="btn btn-primary">Yeni Sınav Girişi </a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.21/i18n/Turkish.json'
+        }
+    });
+</script>
